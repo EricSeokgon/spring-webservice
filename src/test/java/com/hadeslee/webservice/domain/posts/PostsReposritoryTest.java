@@ -10,12 +10,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class PostsReposritoryTest {
-
+public class PostsReposritoryTest {
     @Autowired
     PostsReposritory postsReposritory;
 
@@ -29,7 +28,7 @@ class PostsReposritoryTest {
     }
 
     @Test
-    public void 게시글저장_불러오기() {
+    public void test() {
         //given
         postsReposritory.save(Posts.builder()
                 .title("테스트 title")
@@ -45,4 +44,5 @@ class PostsReposritoryTest {
         assertThat(posts.getTitle(), is("테스트 title"));
         assertThat(posts.getContent(), is("테스트 content"));
     }
+
 }
