@@ -1,7 +1,7 @@
 package com.hadeslee.webservice.web;
 
 
-import com.hadeslee.webservice.domain.posts.PostsReposritory;
+import com.hadeslee.webservice.domain.posts.PostsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class WebRestController {
-    private PostsReposritory postsReposritory;
+    private PostsRepository postsRepository;
 
     @GetMapping("/hello")
     public String hello() {
@@ -21,6 +21,6 @@ public class WebRestController {
     @PostMapping("/posts")
     public void savePosts(@RequestBody PostsSaveRequestDto dto) {
 
-        postsReposritory.save(dto.toEntity());
+        postsRepository.save(dto.toEntity());
     }
 }
