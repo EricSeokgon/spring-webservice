@@ -17,8 +17,9 @@ public class WebRestController {
         return "HelloWorld";
     }
 
-    @PostMapping(/posts)
+    @PostMapping("/posts")
     public void savePosts(@RequestBody PostsSaveRequestDto dto) {
+
         postsReposritory.save(dto.toEntity());
     }
 }
