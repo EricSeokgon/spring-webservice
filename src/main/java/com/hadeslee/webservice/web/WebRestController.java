@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebRestController {
     private PostsReposritory postsReposritory;
 
+    @GetMapping("/")
+    public String main() {
+        return "main";
+    }
+
     @GetMapping("/hello")
     public String hello() {
         return "HelloWorld";

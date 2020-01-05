@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -28,7 +29,7 @@ public class PostsReposritoryTest {
     }
 
     @Test
-    public void test() {
+    public void 게시글저장_블러오기() {
         //given
         postsReposritory.save(Posts.builder()
                 .title("테스트 title")
@@ -43,6 +44,25 @@ public class PostsReposritoryTest {
         Posts posts = postsList.get(0);
         assertThat(posts.getTitle(), is("테스트 title"));
         assertThat(posts.getContent(), is("테스트 content"));
+    }
+
+    @Test
+    public void BasetimeEntiy_등록() {
+        //given
+        LocalDateTime now = LocalDateTime.now();
+        postsReposritory.save(Posts.builder()
+                .title("테스트 게시글")
+                .content("테스트 본문")
+                .author("leesk55@gmail.com")
+                .build());
+
+        //when
+        List<Posts> postsList = postsReposritory.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+        assertTrue(posts.getCreatedate().isAfter(now));
+        assertTrue(posts.getModifiedDate().isAfter(now));
     }
 
 }
