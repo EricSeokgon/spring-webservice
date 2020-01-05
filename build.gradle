@@ -26,7 +26,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+    implementation 'io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE'
+    implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'

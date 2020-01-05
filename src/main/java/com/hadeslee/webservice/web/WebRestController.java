@@ -1,5 +1,6 @@
 package com.hadeslee.webservice.web;
 
+
 import com.hadeslee.webservice.domain.posts.PostsReposritory;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class WebRestController {
     private PostsReposritory postsReposritory;
-
-    @GetMapping("/")
-    public String main() {
-        return "main";
-    }
 
     @GetMapping("/hello")
     public String hello() {
